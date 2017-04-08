@@ -3,7 +3,7 @@ var db = require('./../database');
 function EntradaModelo() {}
 EntradaModelo.prototype.listar = function(parametros) {
     parametros = parametros || {};
-    return db.entrada.find(parametros).exec();
+    return db.entrada.find(parametros).populate('autor').exec();
 };
 
 EntradaModelo.prototype.crear = function(data) {

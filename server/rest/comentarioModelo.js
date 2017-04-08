@@ -3,7 +3,7 @@ var db = require('./../database');
 function ComentarioModelo() {}
 ComentarioModelo.prototype.listar = function(parametros) {
     parametros = parametros || {};
-    return db.comentario.find(parametros).exec();
+    return db.comentario.find(parametros).populate('autor').exec();
 };
 
 ComentarioModelo.prototype.crear = function(data) {
