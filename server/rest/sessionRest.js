@@ -3,7 +3,7 @@ var express = require('express');
 var usuarioRest = express();
 var usuarioModelo = require('./usuarioModelo');
 
-usuarioRest.post('/register', function(req, res) {
+usuarioRest.post('/registrar', function(req, res) {
     usuarioModelo.crear(req.body)
         .then(
             cbs.devolverParametro(res), 
