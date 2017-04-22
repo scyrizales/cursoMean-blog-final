@@ -23,6 +23,7 @@ entradaRest.get('/:id', function(req, res) {
 });
 
 entradaRest.post('', function(req, res) {
+    req.body.autor = req.session.usuario._id;
     entradaModelo.crear(req.body)
         .then(
             cbs.devolverParametro(res), 

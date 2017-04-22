@@ -1,0 +1,5 @@
+<div>
+  <div *ngIf="sessionService.estaLogeado">
+    Bienvenido {{ (sessionService.usuario | async)?.nombre  }}
+  </div>
+</div>

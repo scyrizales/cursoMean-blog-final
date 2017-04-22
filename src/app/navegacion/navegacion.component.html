@@ -1,6 +1,5 @@
 <md-toolbar>
   <span>Blog</span>
-  <span></span>
   <span>
     <button md-button [mdMenuTriggerFor]="menu">
       Menu
@@ -15,6 +14,15 @@
       <button md-menu-item routerLink="/registro">
         <span>Registro</span>
       </button>
+      <button md-menu-item routerLink="/entradas">
+        <span>Entradas</span>
+      </button>
+      <button md-menu-item routerLink="/editar-entrada/new">
+        <span>Nueva Entrada</span>
+      </button>
     </md-menu>
+  </span>
+  <span>
+    <usuario-estado></usuario-estado>
   </span>
 </md-toolbar>

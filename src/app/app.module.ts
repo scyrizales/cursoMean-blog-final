@@ -11,8 +11,12 @@ import { InicioComponent } from './inicio/inicio.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
-
 import { SessionService } from './session.service';
+import { UsuarioEstadoComponent } from './usuario-estado/usuario-estado.component';
+import { ListaEntradasComponent } from './lista-entradas/lista-entradas.component';
+import { EntradaComponent } from './entrada/entrada.component';
+import { EditarEntradaComponent } from './editar-entrada/editar-entrada.component';
+import { EntradaService } from './entrada.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { SessionService } from './session.service';
     InicioComponent,
     RegistroComponent,
     LoginComponent,
-    NavegacionComponent
+    NavegacionComponent,
+    UsuarioEstadoComponent,
+    ListaEntradasComponent,
+    EntradaComponent,
+    EditarEntradaComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +50,18 @@ import { SessionService } from './session.service';
         component: RegistroComponent
       },
       {
+        path: 'editar-entrada/:id',
+        component: EditarEntradaComponent
+      },
+      {
+        path: 'entrada/:id',
+        component: EntradaComponent
+      },
+      {
+        path: 'entradas',
+        component: ListaEntradasComponent
+      },
+      {
         path: '',
         redirectTo: '/inicio',
         pathMatch: 'full'
@@ -49,7 +69,8 @@ import { SessionService } from './session.service';
     ])
   ],
   providers: [
-    SessionService
+    SessionService,
+    EntradaService
   ],
   bootstrap: [AppComponent]
 })

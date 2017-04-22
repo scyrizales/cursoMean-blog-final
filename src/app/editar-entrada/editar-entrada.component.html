@@ -1,0 +1,15 @@
+<md-card>
+  <form action="">
+    <md-input-container>
+      <input type="text" mdInput placeholder="Titulo" [(ngModel)]="nuevaEntrada.titulo" name="titulo" />
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Cuerpo" [(ngModel)]="nuevaEntrada.cuerpo" name="cuerpo" />
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Imagen" [(ngModel)]="nuevaEntrada.imagen" name="imagen" />
+    </md-input-container>
+    <img [src]="nuevaEntrada.imagen" />
+    <button md-raised-button (click)="guardar()">Guardar</button>
+  </form>
+</md-card>

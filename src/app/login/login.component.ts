@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from './../session.service';
 
 @Component({
   selector: 'login',
@@ -9,7 +11,7 @@ export class LoginComponent implements OnInit {
   email: String;
   password: String;
   errors: String[] = [];
-  constructor() { }
+  constructor(private sessionSvc: SessionService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,7 +19,10 @@ export class LoginComponent implements OnInit {
   login() {
     this.errors = [];
     if (this.email && this.password) {
-
+      this.sessionSvc.login({ email: this.email, password: this.password })
+        .subscribe(usuario => {
+          this.router.navigate(['/inicio']);
+        });
     } else {
       this.errors.push('Ingrese usuario y password')
     }

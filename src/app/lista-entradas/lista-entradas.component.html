@@ -1,0 +1,6 @@
+<div>
+  <md-card *ngFor="let entrada of entradas" routerLink="/entrada/{{ entrada.id }}">
+    <h3>{{ entrada.titulo }}</h3>
+    <p>{{ entrada.cuerpo.substr(0, 10) }}...</p>
+  </md-card>
+</div>
