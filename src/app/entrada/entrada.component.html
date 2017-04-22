@@ -1,7 +1,10 @@
 <md-card>
   <md-card-title>{{entrada.titulo}}</md-card-title>
   <img md-card-image [src]="entrada.imagen" [attr.alt]="entrada.titulo" />
-  <md-card-content>{{entrada.cuerpo}}</md-card-content>
+  <md-card-content>
+    <p>Escrito por: {{entrada?.autor.nombre}}</p>
+    <p>{{entrada.cuerpo}}</p>
+  </md-card-content>
   <md-card-actions>
     <button md-raised-button routerLink="/editar-entrada/{{entrada.id}}">Editar</button>
   </md-card-actions>

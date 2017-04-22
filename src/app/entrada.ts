@@ -11,6 +11,6 @@ export class Entrada {
         this.titulo = u.titulo;
         this.cuerpo = u.cuerpo;
         this.imagen = u.imagen;
-        this.autor = u.autor;
+        this.autor = new Usuario(u.autor);
     }
 }
