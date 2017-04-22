@@ -4,7 +4,11 @@ var usuarioRest = express();
 var usuarioModelo = require('./usuarioModelo');
 
 usuarioRest.get('/usuario', function(req, res) {
-    res.json(req.session.usuario || {});
+    let u = req.session.usuario || {};
+    usuarioModelo.listar({ _id: u._id })
+        .then(function (err, usuarios) {
+            res.json(usuarios[0] || {});
+        });
 });
 
 usuarioRest.post('/registrar', function(req, res) {

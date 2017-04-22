@@ -32,6 +32,7 @@ entradaRest.post('', function(req, res) {
 });
 
 entradaRest.put('/:id', function(req, res) {
+    req.body.autor = req.body.autor.id;
     entradaModelo.actualizar(req.params.id, req.body)
         .then(
             cbs.devolverParametro(res), 

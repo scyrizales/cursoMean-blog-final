@@ -11,11 +11,12 @@ import { Entrada } from '../entrada';
 export class EntradaComponent implements OnInit, OnDestroy {
   entrada: Entrada = new Entrada();
   sub: any;
-  constructor(private entradaService: EntradaService, private route: ActivatedRoute) { }
+  constructor(private entradaService: EntradaService, 
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.entradaService.listar(params.id)
+      this.entradaService.listar(params['id'])
         .subscribe(e => {
           this.entrada = e;
         });

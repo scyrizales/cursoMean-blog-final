@@ -11,14 +11,18 @@ import { Entrada } from '../entrada';
 export class EditarEntradaComponent implements OnInit, OnDestroy {
   nuevaEntrada: Entrada = new Entrada();
   sub: any;
-  constructor(private entradaService: EntradaService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private entradaService: EntradaService, 
+              private router: Router, 
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.entradaService.listar(params.id)
-        .subscribe(e => {
-          this.nuevaEntrada = e;
-        })
+      if (params['id'] !== 'new') {
+        this.entradaService.listar(params['id'])
+          .subscribe(e => {
+            this.nuevaEntrada = e;
+          });
+      }
     })
   }
 

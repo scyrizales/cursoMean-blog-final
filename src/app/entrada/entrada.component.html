@@ -2,7 +2,7 @@
   <md-card-title>{{entrada.titulo}}</md-card-title>
   <img md-card-image [src]="entrada.imagen" [attr.alt]="entrada.titulo" />
   <md-card-content>
-    <p>Escrito por: {{entrada?.autor.nombre}}</p>
+    <p>Escrito por: {{entrada?.autor?.nombre}}</p>
     <p>{{entrada.cuerpo}}</p>
   </md-card-content>
   <md-card-actions>

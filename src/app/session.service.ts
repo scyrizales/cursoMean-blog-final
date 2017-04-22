@@ -38,4 +38,15 @@ export class SessionService {
       });
   }
 
+  logout() {
+    return this.http.post('/api/session/logout', {})
+      .map(res => res.json())
+      .map(res => {
+        if (res.msg === 'ok') {
+          this.estaLogeado = false;
+          this._usuario.next(new Usuario());
+        }
+      });
+  }
+
 }
